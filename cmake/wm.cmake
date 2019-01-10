@@ -13,7 +13,7 @@ function(target_flash TARGET)
     set(IMG_FILE ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${TARGET}.img)
 
     add_custom_target(${TARGET}.flash
-        COMMAND ${Python3_EXECUTABLE} ${SDK}/../upload.py ${IMG_FILE}
+        COMMAND ${Python3_EXECUTABLE} ${CMAKE_SOURCE_DIR}/tools/upload.py ${AIR602_PORT} ${IMG_FILE}
         DEPENDS ${IMG_FILE}
         USES_TERMINAL
     )
