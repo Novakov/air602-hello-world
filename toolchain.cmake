@@ -3,8 +3,6 @@ SET(CMAKE_CROSSCOMPILING 1)
 set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
 set(CMAKE_SYSTEM_PROCESSOR armv6)
 
-set(TOOLCHAIN D:/Toolchains/arm-none-eabi/bin)
-
 find_program(CMAKE_C_COMPILER NAMES arm-none-eabi-gcc PATHS ${TOOLCHAIN})
 find_program(CMAKE_CXX_COMPILER NAMES arm-none-eabi-g++ PATHS ${TOOLCHAIN})
 find_program(CMAKE_AR NAMES arm-none-eabi-gcc-ar PATHS ${TOOLCHAIN})

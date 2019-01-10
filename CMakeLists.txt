@@ -1,8 +1,17 @@
 cmake_minimum_required(VERSION 3.1)
 
+set(LOCAL_CFG "" CACHE FILEPATH "Path to local config")
+
+if(NOT LOCAL_CFG)
+    message(FATAL_ERROR "LOCAL_CFG variable not set. Use -DLOCAL_CFG=<file> to set local config. See local-example.cmake for available options")
+endif()
+
+message(STATUS "Using local config from ${LOCAL_CFG}")
+include(${LOCAL_CFG})
+
 include(toolchain.cmake)
 
-project(OledTest C CXX ASM)
+project(MyProject C CXX ASM)
 
 set(OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR}/build/${TARGET_PLATFORM})
 set(REPORTS_PATH ${OUTPUT_PATH}/reports)
@@ -20,8 +29,6 @@ if(NOT CMAKE_BUILD_TYPE)
 else()
     set(CMAKE_BUILD_TYPE ${CMAKE_BUILD_TYPE} CACHE STRING "" FORCE)
 endif()
-
-set(SDK D:/Toolchains/Air602/sdk_clean)
 
 include(cmake/formats.cmake)
 include(cmake/wm.cmake)
