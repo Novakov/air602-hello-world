@@ -1,2 +1,1 @@
-include(sdk.cmake)
-include(lwip.cmake)
+add_subdirectory(sdk)
